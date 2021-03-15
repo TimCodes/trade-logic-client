@@ -4,12 +4,11 @@ import { useForm } from "react-hook-form";
 import TradeForm from "./TradeForm";
 import TradeSearch from "./TradeSearch";
 
-
-
 const Trades = ({ initialTrades }) => {
   const [trades, setTrades] = React.useState(initialTrades);
   const [filteredTrades, setFilteredTrades] = React.useState(initialTrades);
   const [filterTerm, setFilterTerm] = React.useState(null);
+  const pnl = calculatePnl(trades);
 
   React.useEffect(() => {
     const results = trades.filter(trade => {
@@ -53,6 +52,8 @@ const Trades = ({ initialTrades }) => {
       <br />
       <TradeForm onTradeSubmit={onTradeSubmit} />
       <br />
+      {pnl}
+      <br />
       <ul>
         {filteredTrades.map(trade => (
           <li key={trade.id}>
@@ -69,3 +70,10 @@ const Trades = ({ initialTrades }) => {
 };
 
 export default Trades;
+
+function calculatePnl(trades) {
+  return trades.reduce((acc, currentVal) => {
+    const { pnl } = currentVal;
+    return Number(acc) + Number(pnl);
+  }, 0);
+}
