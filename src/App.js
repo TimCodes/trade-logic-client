@@ -2,6 +2,8 @@ import React from "react";
 import "./style.css";
 
 import Trades from "./components/Trades";
+import LoginForm from "./components/LoginForm";
+import { Button } from "./components/lib";
 
 const myTrades = [
   {
@@ -39,6 +41,7 @@ export default function App() {
       <h1>Trade Logic</h1>
       <p>Start editing to see some magic happen :)</p>
       <Trades initialTrades={myTrades} />
+      <LoginForm submitButton={<Button variant="secondary">Login</Button>} />
     </div>
   );
 }
