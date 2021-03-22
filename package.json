@@ -3,6 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
+    "emotion": "^11.0.0",
+    "reach": "^1.0.1",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
     "react-hook-form": "^6.11.0"
