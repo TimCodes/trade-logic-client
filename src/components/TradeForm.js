@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { Button } from "./lib";
 
 const useInput = initialValue => {
   const [value, setValue] = React.useState(initialValue);
@@ -100,7 +101,6 @@ const TradeForm = ({ onTradeSubmit }) => {
           name="tradeVolumeInput"
           type="text"
           {...volumeBind}
-
           ref={register}
         />
       </div>
@@ -122,7 +122,7 @@ const TradeForm = ({ onTradeSubmit }) => {
           ref={register}
         />
       </div>
-      <button>Submit</button>
+      <Button>Submit</Button>
     </form>
   );
 };
