@@ -5,6 +5,10 @@ import "./style.css";
 import Trades from "./components/Trades";
 import LoginForm from "./components/LoginForm";
 import Journal from "./screens/journal";
+import Dashboard from "./screens/dashboard";
+import Reports from "./screens/reports";
+import * as TradesScreen from "./screens/trades";
+
 import { Button } from "./components/lib";
 
 const myTrades = [
@@ -43,6 +47,13 @@ export default function App() {
       <Switch>
         <Route path="/journal">
           <Journal />
+        </Route>
+
+        <Route path="/reports">
+          <Reports />
+        </Route>
+        <Route path="/dashboard">
+          <Dashboard />
         </Route>
         <Route path="/">
           <div>
