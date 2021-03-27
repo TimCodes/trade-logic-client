@@ -1,8 +1,10 @@
 import React from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./style.css";
 
 import Trades from "./components/Trades";
 import LoginForm from "./components/LoginForm";
+import Journal from "./screens/journal";
 import { Button } from "./components/lib";
 
 const myTrades = [
@@ -37,11 +39,22 @@ const myTrades = [
 
 export default function App() {
   return (
-    <div>
-      <h1>Trade Logic</h1>
-      <p>Start editing to see some magic happen :)</p>
-      <Trades initialTrades={myTrades} />
-      <LoginForm submitButton={<Button variant="secondary">Login</Button>} />
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/journal">
+          <Journal />
+        </Route>
+        <Route path="/">
+          <div>
+            <h1>Trade Logic</h1>
+            <p>Start editing to see some magic happen :)</p>
+            <Trades initialTrades={myTrades} />
+            <LoginForm
+              submitButton={<Button variant="secondary">Login</Button>}
+            />
+          </div>
+        </Route>
+      </Switch>
+    </Router>
   );
 }
